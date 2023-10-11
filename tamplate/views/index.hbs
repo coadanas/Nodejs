@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ragistraton Form</title>
+  <style>
+    * {
+  margin: 0px;
+  padding: 0px;
+  font-family: Times New Roman;
+}
+.border {
+  border: 1px solid gray;
+}
+.mt-10 {
+  margin-top: 1.5rem;
+}
+.p-10 {
+  padding: 10px;
+}
+
+.d-flex {
+  display: flex;
+}
+.f-direction {
+  flex-direction: column;
+}
+.j-center {
+  justify-content: center;
+}
+.j-space {
+  justify-content: space-around;
+}
+.a-center {
+  align-items: center;
+}
+.a-start {
+  align-items: start;
+}
+
+.container {
+  width: 100vw;
+  height: 200vh;
+}
+
+.layout-container {
+  width: 300px;
+}
+.text h2 {
+  font-size: 1.5rem;
+}
+.text p {
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: gray;
+}
+.img img {
+  width: 300px;
+}
+
+.form-cotainer {
+  width: 300px;
+}
+form {
+  width: 300px;
+  height: 450px;
+  padding: 2rem;
+  border-radius: 5px;
+  position: relative;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: 100;
+  position: absolute;
+  top: -1rem;
+  left: 3.5rem;
+  background-color: white;
+}
+
+#name, #email, #password, #conPass {
+  border: 1px solid transparent;
+  outline: none;
+  background-color: transparent;
+}
+.input-box {
+  padding: 8px 12px;
+  width: 233px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fbfbfb;
+}
+.right-res {
+  padding: 8px 12px;
+  width: 233px;
+  border: 1.5px solid #6ed279;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fbfbfb;
+}
+.wrong-res {
+  padding: 8px 12px;
+  width: 233px;
+  border: 1.5px solid red;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fbfbfb;
+}
+
+.show-pass span {
+  margin-right: 10px;
+}
+#submit {
+  padding: 8px 12px;
+  width: 258px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  background-color: #ed6161;
+}
+  </style>
+</head>
+<body>
+
+  <div class="container d-flex j-space a-center">
+    <!-- LAYOUT CONTAINER -->
+    <div class="layout-container d-flex f-direction j-center a-center">
+      <div class="text p-10">
+        <h2>welcome <br> to our site <br>STOFILAR</h2>   <br>
+        <p>
+          Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. <br> Dolore corrupti ut tempora ea odit  <br>deleniti dicta vitae debitis  <br>obcaecati inventore.
+        </p>
+      </div>
+      <div class="img">
+        <img src="https://png.pngtree.com/png-vector/20200312/ourmid/pngtree-modern-flat-design-concept-of-programmers-at-work-concept-software-development-png-image_2157879.jpg" alt="img">
+      </div>
+    </div>
+    <!-- FORM CONTAINER -->
+    <div class="form-cotainer d-flex j-center a-center">
+      <form action="/auth/signup" method="POST" class="mt-10 d-flex f-direction j-center a-start border">
+
+        <lable class="title">Registration From</lable>
+
+        <div class="mt-10">
+          <lable>Name</lable> <br>
+          <div class="input-box" id="name-box">
+            <input type="text" name="name" id="name" onkeyup="names()">
+          </div>
+          <div id="name-res"></div>
+        </div>
+
+        <div class="mt-10">
+          <lable>E-mail</lable> <br>
+          <div class="input-box" id="email-box">
+            <input type="email" name="email" id="email" onkeyup="emails()">
+          </div>
+          <div id="email-res"></div>
+        </div>
+
+        <div class="mt-10">
+          <lable>Password</lable> <br>
+          <div class="input-box" id="pass-box">
+            <input type="password" name="password" id="password" onkeyup="passwords()">
+          </div>
+          <div id="pass-res"></div>
+        </div>
+
+        <div class="mt-10">
+          <lable>Confirm Password</lable> <br>
+          <div class="input-box" id="conPass-box">
+            <input type="password" name="conPass" id="conPass" onkeyup="confirmPass()">
+          </div>
+          <div id="conPass-res"></div>
+        </div>
+
+        <div class="show-pass mt-10  d-flex j-center a-center">
+          <span>show password</span>
+          <input type="checkbox" onclick="show()">
+        </div>
+
+        <div class="mt-10">
+          <input type="submit" id="submit">
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function show() {
+  let password = document.getElementById("password");
+  let conPass = document.getElementById("conPass");
+  let value1 = password.getAttribute("type");
+  let value2 = conPass.getAttribute("type");
+
+  if (value1 === "password" && value2 === "password") {
+    password.setAttribute("type", "text")
+    conPass.setAttribute("type", "text")
+  } else {
+    password.setAttribute("type", "password")
+    conPass.setAttribute("type", "password")
+  }
+};
+// NAME
+function names() {
+  let name = document.getElementById("name");
+  let value = name.value;
+  let res = document.getElementById("name-res");
+  let style = document.getElementById("name-box");
+
+  if (value == "") {
+    res.innerText = "enter your name";
+    res.style.color = "red";
+    res.style.fontSize = "12px"
+    style.setAttribute("class", "wrong-res")
+  } else {
+    res.innerText = "";
+    style.setAttribute("class", "right-res")
+  }
+}
+// EMAIL
+function emails() {
+  let email = document.getElementById("email");
+  let value = email.value;
+  let res = document.getElementById("email-res");
+  let style = document.getElementById("email-box");
+
+  if (value == "") {
+    res.innerText = "enter your email";
+    res.style.color = "red";
+    res.style.fontSize = "12px"
+    style.setAttribute("class", "wrong-res")
+  } else {
+    res.innerText = "";
+    style.setAttribute("class", "right-res")
+  }
+}
+// PASSWORD
+function passwords() {
+  let password = document.getElementById("password");
+  let value = password.value;
+  let res = document.getElementById("pass-res");
+  let style = document.getElementById("pass-box");
+
+  if (value == "") {
+    res.innerText = "enter your password";
+    res.style.color = "red";
+    res.style.fontSize = "12px"
+    style.setAttribute("class", "wrong-res")
+  } else {
+    res.innerText = "";
+    style.setAttribute("class", "right-res")
+  }
+}
+// CONFIRM PASSWORD
+function confirmPass() {
+  let confirmPass = document.getElementById("conPass");
+  let value = confirmPass.value;
+  let res = document.getElementById("conPass-res");
+  let style = document.getElementById("conPass-box");
+
+  if (value == "") {
+    res.innerText = "enter your confirm password";
+    res.style.color = "red";
+    res.style.fontSize = "12px"
+    style.setAttribute("class", "wrong-res")
+  } else {
+    res.innerText = "";
+    style.setAttribute("class", "right-res")
+  }
+}s
+  </script>
+</body>
+</html>

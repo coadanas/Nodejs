@@ -1,0 +1,115 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Times New Roman;
+}
+.border {
+  border: 1px solid gray;
+}
+.mt-10 {
+  margin-top: 1.5rem;
+}
+.p-10 {
+  padding: 10px;
+}
+
+.d-flex {
+  display: flex;
+}
+.f-direction {
+  flex-direction: column;
+}
+.j-center {
+  justify-content: center;
+}
+.j-space {
+  justify-content: space-around;
+}
+.a-center {
+  align-items: center;
+}
+.a-start {
+  align-items: start;
+}
+
+.container {
+  width: 100vw;
+  height: 200vh;
+}
+
+.layout-container {
+  width: 300px;
+}
+.text h2 {
+  font-size: 1.5rem;
+}
+.text p {
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: gray;
+}
+.img img {
+  width: 300px;
+}
+
+.form-cotainer {
+  width: 300px;
+}
+form {
+  width: 300px;
+  height: 450px;
+  padding: 2rem;
+  border-radius: 5px;
+  position: relative;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: 100;
+  position: absolute;
+  top: -1rem;
+  left: 3.5rem;
+  background-color: white;
+}
+
+#name, #email, #password, #conPass {
+  border: 1px solid transparent;
+  outline: none;
+  background-color: transparent;
+}
+.input-box {
+  padding: 8px 12px;
+  width: 233px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fbfbfb;
+}
+.right-res {
+  padding: 8px 12px;
+  width: 233px;
+  border: 1.5px solid #6ed279;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fbfbfb;
+}
+.wrong-res {
+  padding: 8px 12px;
+  width: 233px;
+  border: 1.5px solid red;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fbfbfb;
+}
+
+.show-pass span {
+  margin-right: 10px;
+}
+#submit {
+  padding: 8px 12px;
+  width: 258px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  background-color: #ed6161;
+}
